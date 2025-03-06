@@ -19,13 +19,13 @@ private:
 
 public:
     Queue() {
-        front = rear = nullptr;
+        front = back = nullptr;
         count = 0;
     }
     void enqueue(int val) {
         Node* newNode = new Node(val);
         if (back == nullptr) {
-            front = rear = newNode;
+            front = back = newNode;
         } else {
             back->next = newNode;
             back = newNode;
