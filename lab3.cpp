@@ -1,67 +1,64 @@
-
 #include <iostream>
 using namespace std;
 
-class Node{
-    public:
-        int data;
-        Node *next;
-        
-        Node(int x,Node *n){
-            data =x;
-            next=n;
-        }
+struct Node {
+    int data;
+    Node* next;
+
+    Node(int val) {
+        data = val;
+        next = nullptr;
+    }
 };
 
-int Queue() {
-    private:
-        Node *back;
-        Node *front;
-        int count;
-        
-    public:
-        Queue(){
-            front = back = nullptr;
-            count=0;
+class Queue {
+private:
+    Node* front;
+    Node* back;
+    int count;
+
+public:
+    Queue() {
+        front = rear = nullptr;
+        count = 0;
+    }
+    void enqueue(int val) {
+        Node* newNode = new Node(val);
+        if (back == nullptr) {
+            front = rear = newNode;
+        } else {
+            back->next = newNode;
+            back = newNode;
         }
-        
-        void enqueue(int val){
-            Node* newNode = new newNode(val);
-            if(back==nullptr){
-                front = back = newNode;
-            }else{
-                back -> newNode;
-                back = newNode;
-            }
-            count++;
+        count++;
+    }
+
+
+    void dequeue() {
+        if (isEmpty()) {
+            cout << "Queue is empty.\n";
+            return;
         }
-        void dequeue(){
-            if(isEmpty()){
-                cout<<"Queue is empty now.";
-                return;
-            }else{
-                Node* temp = front;
-                front = front->next;
-                if(front==nullptr){
-                    back=nullptr;
-                }
-                delete temp;
-                count--;
-            }
+        Node* temp = front;
+        front = front->next;
+        if (front == nullptr)
+            back = nullptr;
+        delete temp;
+        count--;
+    }
+
+    int top() {
+        if (isEmpty()) {
+            cout << "Queue is empty!\n";
+            return -1;
         }
-        int top(){
-            if(isEmpty()){
-                cout<<"Queue is empty now.";
-                return -1;
-            }else{
-                return front->data;
-            }
-        }
-        bool isEmpty(){
-            return front == nullptr;
-        }
-        int size(){
-            return count;
-        }
-    return 0;
+        return front->data;
+    }
+    bool isEmpty() {
+        return front == nullptr;
+    }
+    int size() {
+        return count;
+    }
 };
+
