@@ -62,3 +62,18 @@ public:
     }
 };
 
+int main() {
+    Queue q;
+    q.enqueue(15);
+    q.enqueue(25);
+    q.enqueue(50);
+    
+    cout << "Front element: " << q.top() << endl;
+    cout << "Queue size: " << q.size() << endl;
+
+    q.dequeue();
+    cout << "Front element after dequeue: " << q.top() << endl;
+    cout << "Queue size after dequeue: " << q.size() << endl;
+
+    return 0;
+}
