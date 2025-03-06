@@ -11,7 +11,7 @@ class Node{
             data =x;
             next=n;
         }
-}
+};
 
 int Queue() {
     private:
@@ -64,4 +64,4 @@ int Queue() {
             return count;
         }
     return 0;
-}
+};
